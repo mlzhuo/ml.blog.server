@@ -1,0 +1,24 @@
+{
+  "name": "ml.blog.server",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./src/index",
+    "dev": "supervisor ./src/index"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "express-jwt": "^5.3.1",
+    "formidable": "^1.2.1",
+    "http-errors": "~1.6.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.2.7",
+    "mongoose": "^5.5.15",
+    "morgan": "^1.9.1",
+    "pug": "2.0.0-beta11",
+    "yamljs": "^0.3.0"
+  }
+}
