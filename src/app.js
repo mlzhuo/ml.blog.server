@@ -61,7 +61,6 @@ app.use((req, res, next) => {
   }
 })
 
-app.use('/public', express.static(__dirname + '/public'))
 app.use('/api', indexRouter)
 app.use('/api/user', userRouter)
 app.use('/api/blog', blogRouter)

@@ -4,7 +4,10 @@ const YAML = require('yamljs')
 
 YAML.load(process.cwd() + '/blog.conf', function(config) {
   if (config) {
+    service_url = config.service_url
     service_port = config.service_port
+    global.service_url = service_url
+    global.service_port = service_port
     app.set('port', service_port)
     server = http.createServer(app)
     server.listen(service_port, function() {

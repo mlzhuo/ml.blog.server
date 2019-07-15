@@ -7,7 +7,6 @@ const userModel = require('../schema/userSchema');
 const { ApiResponse, CheckToken } = require('../utils/apiUtils');
 const MESSAGE = require('../constant/message');
 const { formatDate } = require('../utils/dateUtils');
-const config = require('../../config');
 
 module.exports = {
   getCategory: (req, res) => {
@@ -137,7 +136,7 @@ module.exports = {
         ApiResponse({
           state: true,
           data: {
-            img: config.server + '/' + imgName
+            img: `http://${global.service_url}:${global.service_port}/${imgName}`
           }
         })
       );
