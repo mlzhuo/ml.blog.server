@@ -1,17 +1,16 @@
-var app = require('./app')
-var http = require('http')
-const YAML = require('yamljs')
 
-YAML.load(process.cwd() + '/blog.conf', function(config) {
-  if (config) {
-    service_url = config.service_url
-    service_port = config.service_port
-    global.service_url = service_url
-    global.service_port = service_port
-    app.set('port', service_port)
-    server = http.createServer(app)
-    server.listen(service_port, function() {
-      console.log(`[${new Date().toISOString()}] SUCCESS App listening on port ${service_port}`)
-    })
-  }
-})
+const http = require('http')
+const YAML = require('yamljs')
+const config = YAML.load(process.cwd() + '/blog.conf')
+if (config) {
+  const { service_port } = config
+  global.config = config
+  const app = require('./app')
+  app.set('port', service_port)
+  server = http.createServer(app)
+  server.listen(service_port, function() {
+    console.log(
+      `[${new Date().toISOString()}] SUCCESS App listening on port ${service_port}`
+    )
+  })
+}
