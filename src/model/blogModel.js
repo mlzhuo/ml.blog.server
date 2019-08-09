@@ -136,7 +136,7 @@ module.exports = {
         ApiResponse({
           state: true,
           data: {
-            img: `http://${global.service_url}:${global.service_port}/${imgName}`
+            img: `${global.service_url}/${imgName}`
           }
         })
       );
