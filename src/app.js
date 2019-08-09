@@ -35,8 +35,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use((req, res, next) => {
   if (
-    req.path === '/login' ||
-    req.path === '/register' ||
+    req.path === '/api/login' ||
+    req.path === '/api/register' ||
     req.path.startsWith('/public')
   ) {
     next()
@@ -61,9 +61,9 @@ app.use((req, res, next) => {
   }
 })
 
-app.use('/', indexRouter)
-app.use('/user', userRouter)
-app.use('/blog', blogRouter)
+app.use('/api/', indexRouter)
+app.use('/api/user', userRouter)
+app.use('/api/blog', blogRouter)
 
 app.use(logger('dev'))
 app.use(express.json())
