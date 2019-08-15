@@ -61,14 +61,19 @@ app.use((req, res, next) => {
   }
 })
 
-app.use('/api/', indexRouter)
-app.use('/api/user', userRouter)
-app.use('/api/blog', blogRouter)
-
 app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
+
+app.use(
+  '/public',
+  express.static(path.join(__dirname.replace('\\src', ''), 'public'))
+)
+
+app.use('/api/', indexRouter)
+app.use('/api/user', userRouter)
+app.use('/api/blog', blogRouter)
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

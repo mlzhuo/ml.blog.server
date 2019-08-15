@@ -124,7 +124,7 @@ module.exports = {
       const date = formatDate(new Date());
       const ranObjectId = new global.ObjectId();
       const ext = path.extname(files.img.name);
-      let imgName = `public/images/${date}_${ranObjectId}${ext}`;
+      let imgName = `public/image/${date}_${ranObjectId}${ext}`;
       let data = fs.readFileSync(imgPath);
       fs.writeFile(imgName, data, function(err) {
         if (err) {
@@ -136,7 +136,7 @@ module.exports = {
         ApiResponse({
           state: true,
           data: {
-            img: `${global.service_url}/${imgName}`
+            img: `${global.config.service_url}/${imgName}`
           }
         })
       );
