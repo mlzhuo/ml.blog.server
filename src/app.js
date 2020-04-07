@@ -36,7 +36,7 @@ app.use((req, res, next) => {
     req.path === '/api/login' ||
     req.path === '/api/register' ||
     req.path === '/api/log' ||
-    req.path.startsWith('/public')
+    req.path.indexOf('/public') !== -1
   ) {
     next()
     return
