@@ -37,6 +37,7 @@ app.use((req, res, next) => {
   if (
     req.path === '/api/login' ||
     req.path === '/api/register' ||
+    req.path === '/api/log' ||
     req.path.startsWith('/public')
   ) {
     next()

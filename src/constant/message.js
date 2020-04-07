@@ -11,5 +11,7 @@ module.exports = {
   SAVE_LOG_ERROR: '记录日志失败',
   SAVE_LOG_SUCCESS: '记录日志成功',
   ADD_BLOG_SUCCESS: '发布成功',
-  ADD_BLOG_ERROR: '发布失败'
+  ADD_BLOG_ERROR: '发布失败',
+  CREATE_SUCCESS: '创建成功',
+  CREATE_ERROR: '创建失败'
 };

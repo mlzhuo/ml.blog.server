@@ -10,7 +10,16 @@ router.get('/:blog_id', (req, res) => {
 router.post('/add', (req, res) => {
   blogModel.insertBlog(req, res);
 });
-router.get('/category/:user_id', (req, res) => {
-  blogModel.getCategory(req, res);
+router.get('/:blog_id/view', (req, res) => {
+  blogModel.viewBlog(req, res);
+});
+router.get('/:blog_id/like', (req, res) => {
+  blogModel.likeBlog(req, res);
+});
+router.get('/draft', (req, res) => {
+  blogModel.deletedBlog(req, res);
+});
+router.get('/deleted', (req, res) => {
+  blogModel.deletedBlog(req, res);
 });
 module.exports = router;
