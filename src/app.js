@@ -15,15 +15,13 @@ const { ApiResponse, GetToken } = require('./utils/apiUtils')
 
 const app = express()
 
-app.all('*', (req, res, next) => {
+app.all('*', function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*')
   res.header(
     'Access-Control-Allow-Headers',
-    'Content-Type,Content-Length, Authorization, Accept,X-Requested-With'
+    'Content-Type, Content-Length, Authorization, Accept, X-Requested-With, Current-Page'
   )
-  res.header('Access-Control-Allow-Methods', 'PUT,POST,GET,DELETE,OPTIONS')
-  res.header('X-Powered-By', ' 3.2.1')
-  res.header('Content-Type', 'application/json;charset=utf-8')
+  res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS')
   if (req.method == 'OPTIONS') {
     res.sendStatus(200)
   } else {
@@ -45,7 +43,7 @@ app.use((req, res, next) => {
   }
   const token = GetToken(req)
   if (token) {
-    jwt.verify(token, global.JWT_KEY, function(err, decoded) {
+    jwt.verify(token, global.JWT_KEY, function (err, decoded) {
       if (err) {
         return res
           .status(403)
@@ -92,7 +90,7 @@ app.use((err, req, res, next) => {
   res.json({
     state: false,
     message: err.message,
-    error: err
+    error: err,
   })
 })
 
